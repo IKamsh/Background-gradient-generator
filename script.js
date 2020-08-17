@@ -1,35 +1,27 @@
-var button = document.getElementById("enter");
-var input = document.getElementById("userinput");
-var ul = document.querySelector("ul");
+var color1 = document.querySelector(".color1");
+var color2 = document.querySelector(".color2");
+var body = document.getElementById("grad");
+var switchCol = document.getElementById("switchColors");
 
-function inputLength() {
-	return input.value.length;
+function setGradient() {
+	body.style.background = 
+	"linear-gradient(to right, " 
+	+ color1.value + ", " 
+	+ color2.value + ")";
 }
 
-function createListElement() {
-	var btn = document.createElement("button");
-	btn.innerHTML = "remove";
-	btn.onclick = removeParent;
-
-	var li = document.createElement("li");
-	li.appendChild(document.createTextNode(input.value));
-	li.appendChild(btn);
-	ul.appendChild(li);
-	input.value = "";
+function switchColors() {
+	body.style.background = 
+	"linear-gradient(to right, " 
+	+ color2.value + ", " 
+	+ color1.value + ")";
+	var temp = color2.value
+	color2.value = color1.value;
+	color1.value = temp;
 }
 
-function addListAfterClick() {
-	if (inputLength() > 0) {
-		createListElement();
-	}
-}
+color1.addEventListener("input", setGradient);
 
-function addListAfterKeypress(event) {
-	if (inputLength() > 0 && event.keyCode === 13) {
-		createListElement();
-	}
-}
+color2.addEventListener("input", setGradient);
 
-button.addEventListener("click", addListAfterClick);
-
-input.addEventListener("keypress", addListAfterKeypress);
+switchCol.addEventListener("click", switchColors)
