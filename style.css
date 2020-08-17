@@ -1,12 +1,12 @@
 body {
-	font: 'Raleway', sans-serif;
+    font: 'Raleway', sans-serif;
     color: rgba(0,0,0,.45);
     text-align: center;
     text-transform: uppercase;
     letter-spacing: .4em;
     top: 20%;
     bottom: 20%;
-	background: linear-gradient(to right, #00FFE1 , #00FF66);
+    background: linear-gradient(to right, #00FFE1 , #00FF66);
 }
 
 h1 {
